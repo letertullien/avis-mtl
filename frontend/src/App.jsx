@@ -5,7 +5,7 @@ import Accueil from "./pages/Accueil/Accueil";
 import DetailAlerte from "./pages/DetailAlerte/DetailAlerte";
 import PageIntrouvable from "./pages/PageIntrouvable/PageIntrouvable";
 import './App.css'
-
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/"                   element={<Accueil />} />
         <Route path="/alertes/:id"        element={<DetailAlerte />} />
+        <Route path="/admin"              element={<Admin />} />
       </Route>
       <Route path="*"                     element={<PageIntrouvable />} />
     </Routes>
