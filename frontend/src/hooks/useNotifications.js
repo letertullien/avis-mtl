@@ -41,6 +41,13 @@ function useNotifications() {
     setChargement(true);
     setErreur(null);
 
+    // Cas 2 : permission déjà bloquée au niveau du navigateur
+    if (Notification.permission === "denied") {
+      setErreur("Les notifications sont bloquées. Allez dans les paramètres de votre navigateur pour les autoriser.");
+      setChargement(false);
+      return;
+    }
+
     try {
       const cleVapid      = await getCleVapid();
       const registration  = await navigator.serviceWorker.ready;
@@ -60,7 +67,12 @@ function useNotifications() {
       setEstAbonne(true);
 
     } catch (err) {
-      setErreur("Impossible de s'abonner. Vérifiez les permissions.");
+      // Cas 1 : permission refusée au moment de la demande
+      if (Notification.permission === "denied") {
+        setErreur("Vous avez refusé les notifications. Modifiez les paramètres de votre navigateur pour les autoriser.");
+      } else {
+        setErreur("Impossible de s'abonner. Vérifiez les permissions.");
+      }
     } finally {
       setChargement(false);
     }
@@ -95,7 +107,10 @@ function useNotifications() {
     }
   }
 
-  return { estAbonne, chargement, erreur, sabonner, seDesabonner };
+  // Cas 3 : API Push indisponible sur cet appareil
+  const estSupporte = "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
+
+  return { estAbonne, estSupporte, chargement, erreur, sabonner, seDesabonner };
 }
 
 export default useNotifications;
