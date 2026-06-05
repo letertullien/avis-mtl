@@ -1,6 +1,6 @@
 import { extraireArrondissement } from "./listes";
 
-const API_URL      = "http://localhost:3001";                              // Ton backend Express
+const API_URL      = "https://avis-mtl-backend.onrender.com";                              // Ton backend Express
 const GEOJSON_URL  = "https://donnees.montreal.ca/dataset/556c84af-aebf-4ca9-9a9c-2f246601674c/resource/d249e452-46f5-422f-91ae-898c98eea6cc/download/avis-alertes.geojson";
 
 // ── Conversion d'un enregistrement brut vers le modèle interne  

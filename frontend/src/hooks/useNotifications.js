@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const BACKEND_URL = "http://localhost:3001";
+const BACKEND_URL = "https://avis-mtl-backend.onrender.com";
 
 function useNotifications() {
 
