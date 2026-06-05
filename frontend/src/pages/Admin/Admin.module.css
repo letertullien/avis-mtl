@@ -1,0 +1,84 @@
+.page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.titre {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #1a1a2e;
+  font-size: 0.95rem;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0057a8;
+}
+
+.textarea {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #0057a8;
+}
+
+.bouton {
+  background: #0057a8;
+  color: white;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.bouton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.succes {
+  color: #27ae60;
+  font-weight: 600;
+  padding: 0.75rem;
+  background: #eafaf1;
+  border-radius: 4px;
+}
+
+.erreur {
+  color: #c0392b;
+  font-weight: 600;
+  padding: 0.75rem;
+  background: #fdedec;
+  border-radius: 4px;
+}
