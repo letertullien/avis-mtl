@@ -1,8 +1,10 @@
+ 
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getAlerteById, getGeometrieByTitre } from "../../services/alertes";
 import Chargement from "../../components/Chargement/Chargement";
 import Abonnement from "../../components/Abonnement/Abonnement";
+import ModaleAbonnement from "../../components/ModaleAbonnement/ModaleAbonnement";  {/* ← AJOUT */}
 import BoutonRetour from "./BoutonRetour/BoutonRetour";
 import CarteAlerteDetail from "../../components/CarteAlerteDetail/CarteAlerteDetail";
 import styles from "./DetailAlerte.module.css";
@@ -15,6 +17,7 @@ function DetailAlerte() {
     const [geometrie, setGeometrie] = useState(null);               // Géométrie GeoJSON 
     const [chargement, setChargement] = useState(true);            // spinner
     const [erreur, setErreur] = useState(null);
+    const [modaleOuverte, setModaleOuverte] = useState(false);      // ← AJOUT
 
     
     function handleRetour() {   // Retour Accueil
@@ -85,8 +88,6 @@ function DetailAlerte() {
               </ol>
         </nav>
 
-
-
         <header className={styles.entete}>
 
               <h1 className={styles.titre}>{alerte.titre}</h1>
@@ -119,15 +120,21 @@ function DetailAlerte() {
               </a>
             )}
 
+
             {/* Carte de localisation */}
             <h2 className={styles.titreCarte}>Localisation</h2>
             <CarteAlerteDetail geometrie={geometrie} titre={alerte.titre} />
           </div>
 
           <aside className={styles.sidebar}>
-            <Abonnement />
+            <Abonnement onOuvrir={() => setModaleOuverte(true)} />  {/* ← AJOUT */}
           </aside>
         </div>
+
+        {/* Modale d'abonnement */}
+        {modaleOuverte && (
+          <ModaleAbonnement onFermer={() => setModaleOuverte(false)} />
+        )}
 
       </div>
     );
