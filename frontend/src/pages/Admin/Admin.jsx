@@ -120,26 +120,28 @@ function Admin() {
         <div className={styles.historique}>
           <h2 className={styles.titreHistorique}>Historique des envois</h2>
           <table className={styles.tableau}>
-            <thead>
-              <tr>
-                <th>Titre</th>
-                <th>Date</th>
-                <th>Total</th>
-                <th>Succès</th>
-                <th>Échecs</th>
-              </tr>
-            </thead>
-            <tbody>
-              {historique.map((notif) => (
-                <tr key={notif._id}>
-                  <td>{notif.title}</td>
-                  <td>{new Date(notif.sentAt).toLocaleString("fr-CA")}</td>
-                  <td>{notif.recipientsCount}</td>
-                  <td className={styles.succes}>{notif.successCount}</td>
-                  <td className={styles.erreur}>{notif.failureCount}</td>
+               <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Corps</th>
+                    <th>URL</th>
+                    <th>Date</th>
+                    <th>Succès</th>
+                    <th>Échecs</th>
                 </tr>
-              ))}
-            </tbody>
+                </thead>
+                <tbody>
+                {historique.map((notif) => (
+                    <tr key={notif._id}>
+                    <td>{notif.title}</td>
+                    <td>{notif.body}</td>
+                    <td>{notif.url ?? "/"}</td>
+                    <td>{new Date(notif.sentAt).toLocaleString("fr-CA")}</td>
+                    <td className={styles.succes}>{notif.successCount}</td>
+                    <td className={styles.erreur}>{notif.failureCount}</td>
+                    </tr>
+                ))}
+                </tbody>
           </table>
         </div>
       )}
