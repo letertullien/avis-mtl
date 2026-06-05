@@ -95,6 +95,7 @@ async function staleWhileRevalidate(requete, nomCache) {
                     // Événement push — réception d'une notification push
 self.addEventListener("push", (event) => {
 
+  console.log("Push reçu !", event.data?.text());                               // Debug temporaire
 
   let titre   = "Avis MTL";
   let options = {
@@ -103,7 +104,6 @@ self.addEventListener("push", (event) => {
     data: { url: "/" },
   };
 
-  // Si des données sont présentes, on les utilise
   if (event.data) {
     try {
       const donnees = event.data.json();
@@ -111,12 +111,27 @@ self.addEventListener("push", (event) => {
       options.body  = donnees.body  ?? options.body;
       options.data  = { url: donnees.url ?? "/" };
     } catch {
-      // Si les données ne sont pas du JSON valide, on garde les valeurs par défaut
+      // valeurs par défaut
     }
   }
 
   event.waitUntil(
-    self.registration.showNotification(titre, options)                          // Affiche la notification
+    // Envoie le message aux clients ouverts ET affiche la notification système
+    self.clients.matchAll({ type: "window" }).then((clients) => {
+
+      // Envoie un message à chaque fenêtre ouverte pour la notification in-app
+      clients.forEach((client) => {
+        client.postMessage({
+          type:  "PUSH_RECU",
+          titre,
+          corps: options.body,
+          url:   options.data.url,
+        });
+      });
+
+      // Affiche quand même la notification système
+      return self.registration.showNotification(titre, options);
+    })
   );
 });
 
