@@ -2,8 +2,8 @@ import { precacheAndRoute } from 'workbox-precaching';                        //
 
 precacheAndRoute(self.__WB_MANIFEST);                                          // précache les assets générés par Vite
 
-const CACHE_STATIQUE = "avis-mtl-statique-v6";                                // pour les assets JS, CSS, HTML, images
-const CACHE_API      = "avis-mtl-api-v6";                                     // pour les réponses de l'API de la Ville
+const CACHE_STATIQUE = "avis-mtl-statique-v7";                                // pour les assets JS, CSS, HTML, images
+const CACHE_API      = "avis-mtl-api-v7";                                     // pour les réponses de l'API de la Ville
 
                                                                                //  Ressources à précacher à l'installation
 const ASSETS = [
@@ -40,16 +40,19 @@ self.addEventListener("activate", (event) => {
                  //  Événement fetch
 self.addEventListener("fetch", (event) => {
 
-  if (event.request.method !== "GET") return;                                   // just GET
-  if (!event.request.url.startsWith("http")) return;                            // just notre api Request
-  const url = new URL(event.request.url);                                       // read data
+  if (event.request.method !== "GET") return;                                 // just GET
+  if (!event.request.url.startsWith("http")) return;                          // just notre api Request
+  const url = new URL(event.request.url);                                     // read data
+
+  // Laisse passer les tuiles OpenStreetMap sans interception
+  if (url.hostname.includes("tile.openstreetmap.org")) return;
 
   if (url.hostname === "donnees.montreal.ca") {
-    event.respondWith(staleWhileRevalidate(event.request, CACHE_API));           // 1- cache 2- update background
+    event.respondWith(staleWhileRevalidate(event.request, CACHE_API));
     return;
   }
 
-  event.respondWith(cacheFirst(event.request, CACHE_STATIQUE));                  // cache? else network
+  event.respondWith(cacheFirst(event.request, CACHE_STATIQUE));
 });
 
 //  Stratégie Cache First
