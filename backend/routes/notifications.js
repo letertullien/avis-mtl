@@ -1,5 +1,6 @@
 import express    from "express";
 import Abonnement from "../db/abonnement.js";
+import Notification from "../db/notification.js";
 import webpush    from "../utils/webpush.js";
 
 const router = express.Router();
@@ -13,14 +14,12 @@ router.post("/send-notification", async (req, res) => {
   }
 
   try {
-    // Récupère tous les abonnements dans MongoDB
     const abonnements = await Abonnement.find();
 
     if (abonnements.length === 0) {
       return res.status(404).json({ error: "Aucun abonné", message: "Aucun abonnement trouvé" });
     }
 
-    // Contenu de la notification
     const contenu = JSON.stringify({
       title,
       body,
@@ -30,7 +29,6 @@ router.post("/send-notification", async (req, res) => {
     let succes  = 0;
     let echecs  = 0;
 
-    // Envoie la notification à chaque abonné
     for (const abonnement of abonnements) {
       const subscription = {
         endpoint: abonnement.endpoint,
@@ -45,7 +43,6 @@ router.post("/send-notification", async (req, res) => {
         succes++;
 
       } catch (erreur) {
-        // Si l'abonnement est expiré (410) ou invalide (404) → on le supprime
         if (erreur.statusCode === 410 || erreur.statusCode === 404) {
           await Abonnement.findOneAndDelete({ endpoint: abonnement.endpoint });
         }
@@ -53,15 +50,34 @@ router.post("/send-notification", async (req, res) => {
       }
     }
 
+    // Sauvegarde l'historique de la notification dans MongoDB
+    await Notification.create({
+      title,
+      body,
+      recipientsCount: abonnements.length,
+      successCount:    succes,
+      failureCount:    echecs,
+    });
+
     res.json({
       data: {
-        message:  "Notifications envoyées",
+        message:         "Notifications envoyées",
         succes,
         echecs,
-        total:    abonnements.length,
+        total:           abonnements.length,
       },
     });
 
+  } catch (erreur) {
+    res.status(500).json({ error: "Erreur serveur", message: erreur.message });
+  }
+});
+
+// GET /notifications — Retourne l'historique des notifications envoyées
+router.get("/notifications", async (req, res) => {
+  try {
+    const notifications = await Notification.find().sort({ sentAt: -1 });  // Plus récentes en premier
+    res.json({ data: notifications });
   } catch (erreur) {
     res.status(500).json({ error: "Erreur serveur", message: erreur.message });
   }

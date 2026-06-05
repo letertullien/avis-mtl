@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Admin.module.css";
 
 const BACKEND_URL = "https://avis-mtl-backend.onrender.com";
 
 function Admin() {
 
-  const [titre,     setTitre]     = useState("");
-  const [corps,     setCorps]     = useState("");
-  const [url,       setUrl]       = useState("/");
-  const [resultat,  setResultat]  = useState(null);   // Résultat de l'envoi
-  const [envoi,     setEnvoi]     = useState(false);  // En cours d'envoi
+  const [titre,        setTitre]        = useState("");
+  const [corps,        setCorps]        = useState("");
+  const [url,          setUrl]          = useState("/");
+  const [resultat,     setResultat]     = useState(null);
+  const [envoi,        setEnvoi]        = useState(false);
+  const [historique,   setHistorique]   = useState([]);       // ← AJOUT historique
+
+  // Charge l'historique au démarrage
+  useEffect(() => {
+    chargerHistorique();
+  }, []);
+
+  async function chargerHistorique() {
+    try {
+      const reponse = await fetch(`${BACKEND_URL}/notifications`);
+      const json    = await reponse.json();
+      setHistorique(json.data);
+    } catch {
+      console.error("Impossible de charger l'historique");
+    }
+  }
 
   async function handleEnvoyer() {
     if (!titre || !corps) {
@@ -37,6 +53,7 @@ function Admin() {
         setTitre("");
         setCorps("");
         setUrl("/");
+        chargerHistorique();                                   // ← Recharge l'historique
       } else {
         setResultat({ succes: false, message: json.message });
       }
@@ -90,7 +107,6 @@ function Admin() {
           {envoi ? "Envoi en cours..." : "Envoyer à tous les abonnés"}
         </button>
 
-        {/* Résultat de l'envoi */}
         {resultat && (
           <p className={resultat.succes ? styles.succes : styles.erreur}>
             {resultat.message}
@@ -98,6 +114,36 @@ function Admin() {
         )}
 
       </div>
+
+      {/* Historique des notifications */}
+      {historique.length > 0 && (
+        <div className={styles.historique}>
+          <h2 className={styles.titreHistorique}>Historique des envois</h2>
+          <table className={styles.tableau}>
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Succès</th>
+                <th>Échecs</th>
+              </tr>
+            </thead>
+            <tbody>
+              {historique.map((notif) => (
+                <tr key={notif._id}>
+                  <td>{notif.title}</td>
+                  <td>{new Date(notif.sentAt).toLocaleString("fr-CA")}</td>
+                  <td>{notif.recipientsCount}</td>
+                  <td className={styles.succes}>{notif.successCount}</td>
+                  <td className={styles.erreur}>{notif.failureCount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
     </div>
   );
 }
