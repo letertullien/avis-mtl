@@ -6,4 +6,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://avis-mtl-backend.onrender.com https://donnees.montreal.ca; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com;"
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://avis-mtl-backend.onrender.com https://donnees.montreal.ca https://montreal-prod.storage.googleapis.com; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;"
