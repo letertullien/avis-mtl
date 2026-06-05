@@ -1,0 +1,62 @@
+
+
+.page {
+  display: flex;          
+  flex-direction: column; /* empile les enfants verticalement */
+  align-items: center;    /* centré horizontalement */
+  justify-content: center;/* centré verticalement */
+  text-align: center;      
+  padding: 4rem 1.5rem;   /* grand espace haut/bas, petit gauche/droite */
+  gap: 1.25rem;           /* espace entre les éléments */
+}
+
+.code {
+  font-family: "Nunito Sans", sans-serif;  
+  font-size: 6rem;  /* correspons à 96px — très grand pour le code d'erreur : Erreur 404 */
+  font-weight: bold;  
+  color: #e00000;   
+  margin: 0;        /* supprime les marges par défaut */
+  line-height: 1;   /* hauteur de ligne égale à la taille du texte */
+}
+
+.titre {
+  font-family: "Nunito Sans", sans-serif;  
+  font-size: 1.5rem; /* 24px */
+  font-weight: bold;  
+  color: #1a1a2e;     
+  margin: 0;      
+}
+
+.description {
+  font-size: 0.95rem; /* 15.2px */
+  color: #6c757d;     
+  margin: 0;         
+  max-width: 400px;   /* largeur */
+}
+
+.lienRetour {
+  font-family: "Nunito Sans", sans-serif;  
+  font-size: 0.9rem;      
+  font-weight: 600;        /* semi-gras */
+  color: #ffffff;          
+  background-color: #e00000;  
+  text-decoration: none;   /* pas de soulignement */
+  padding: 0.6rem 1.5rem;  /* espace intérieur haut/bas gauche/droite */
+  border-radius: 4px;     
+  transition: background-color 0.2s;  
+  margin-top: 0.5rem;      /* espace au-dessus du bouton */
+}
+
+.lienRetour:hover {
+  background-color: #b30000;  
+}
+
+@media (max-width: 600px) {
+  .code {
+    font-size: 4rem; /* code d'erreur plus petit sur mobile */
+  }
+
+  .titre {
+    font-size: 1.2rem; /* titre plus petit sur mobile */
+  }
+}

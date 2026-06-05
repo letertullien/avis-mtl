@@ -1,0 +1,68 @@
+
+
+.carte {
+  list-style: none;              /* supprime les puces */
+  padding: 1.25rem 0;            /* espace haut/bas uniquement */
+  border-bottom: 1px solid #dee2e6; /* ligne de séparation en bas */
+  display: flex;                 /* activer flexbox */
+  flex-direction: column;        /* empile les elémetns verticalement */
+  gap: 0.5rem;                   /* espace entre les élements */
+}
+
+.carte:first-child {
+  padding-top: 0;      /* supprime l'espace en haut de la première carte */
+}
+
+
+.titre {
+  font-family: "Nunito Sans", sans-serif; 
+  font-size: 1rem;               /* Taille caractère */
+  font-weight: bold;              
+  color: #1a1a2e;                
+  text-decoration: none;         /* pas de soulignement */
+  line-height: 1.4;              /* interligne 1.4x */
+}
+
+.titre:hover {
+  text-decoration: underline; 
+  color: #1a1a2e;             
+}
+
+
+.sujet {
+  display: inline-block;         /* s'étire et se retréci en fonction du contenu en largeur et hauteur*/
+  font-family: "Nunito Sans", sans-serif; 
+  font-size: 0.8rem;            
+  font-weight: 600;              /* semi-gras */
+  color: #1a1a2e;                
+  background-color: #e9ecef;    
+  border-radius: 3px;           
+  padding: 0.2rem 0.6rem;        /* espace intérieur haut/bas gauche/droite */
+  align-self: flex-start;        /* annule l'étirement du flexbox en largeur donc, colle à gauche pour que la largeur soit égale à son contenu */
+}
+
+/* (date + icône) ── */
+.meta {
+  display: flex;       /* icône et date côte à côte */
+  align-items: center; /* alignés verticalement */
+  gap: 0.4rem;         /* espace entre l'icône et la date */
+}
+
+.icone {
+  width: 16px;      /* largeur fixe */
+  height: 16px;     
+  color: #6c757d;   
+  flex-shrink: 0;   /* ne rétrécit pas */
+}
+
+.date {
+  font-size: 0.875rem; 
+  color: #6c757d;      
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .titre {
+    font-size: 0.95rem; /* légèrement plus petit sur mobile */
+  }
+}

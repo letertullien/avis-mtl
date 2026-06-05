@@ -1,0 +1,37 @@
+.abonnement {
+  background-color: #f0f4f8;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;       
+  padding: 1.25rem 1.5rem;   /* haut/bas gauche/droite */
+}
+
+.abonnement h2 {
+  font-family: "Nunito Sans", sans-serif; 
+  font-size: 1rem;                        /* Taille de caractére */
+  font-weight: bold;                      
+  color: #1a1a2e;                        
+  margin: 0 0 0.5rem 0;                   /* espace en bas seulement */
+}
+
+.abonnement p {
+  font-size: 0.9rem;   
+  color: #495057;      
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;     /* interligne 1.5x la taille de police */
+}
+
+.lienAbonner {
+  font-family: "Nunito Sans", sans-serif; 
+  font-size: 0.9rem;     
+  font-weight: 600;       /* semi-gras */
+  color: #005dab;         
+  text-decoration: none;  /* pas de soulignement */
+  display: inline-flex;   /* flexbox en ligne */
+  align-items: center;    /* centré verticalement */
+  gap: 0.25rem;           /* espace entre les éléments*/
+}
+
+.lienAbonner:hover {
+  text-decoration: underline; /* soulignement au survol */
+  color: #003d73;            
+}

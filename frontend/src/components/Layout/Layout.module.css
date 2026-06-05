@@ -1,0 +1,21 @@
+
+
+.layout {
+  min-height: 100vh;      /* occupe au minimum toute la hauteur de l'écran */
+  display: flex;          /* flexbox */
+  flex-direction: column; /* empile header, main, footer verticalement */
+}
+
+.main {
+  flex: 1;             /* prend tout l'espace restant : footer collé en bas */
+  max-width: 1200px;   /* largeur maximale */
+  width: 100%;         /* prend toute la largeur disponible */
+  margin: 0 auto;      /* centré horizontalement */
+  padding: 2rem 1.5rem;/* espace intérieur haut/bas gauche/droite */
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: 1.25rem 1rem; /* espace réduit sur mobile */
+  }
+}

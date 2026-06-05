@@ -1,0 +1,114 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.titre {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+/* ── Layout deux colonnes ── */
+.contenu {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  border-top: 1px solid #dee2e6;
+  padding-top: 1.5rem;
+}
+
+.colonnePrincipale {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.resultats {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.aucunResultat {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.95rem;
+  color: #6c757d;
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed #dee2e6;
+  border-radius: 4px;
+}
+
+/* ── Message d'erreur API ── */
+.erreur {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.95rem;
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 0;
+}
+
+/* ── Bouton Charger plus ── */
+.btnChargerPlus {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #005dab;
+  background: none;
+  border: 2px solid #005dab;
+  border-radius: 4px;
+  padding: 0.55rem 1.5rem;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btnChargerPlus:hover {
+  background-color: #005dab;
+  color: #ffffff;
+}
+
+.btnChargerPlus:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .contenu {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .titre {
+    font-size: 1.5rem;
+  }
+}

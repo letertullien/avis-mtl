@@ -1,0 +1,31 @@
+
+
+.profilImg {
+  height: 26px;  
+  width: auto;  /* largeur proportionnelle à la hauteur */
+}
+
+.btnIcone {
+  display: flex;       /* icône et texte côte à côte */
+  align-items: center; /* alignés verticalement */
+  gap: 0.4rem;         /* espace entre icône et texte */
+  font-family: "Nunito Sans", sans-serif;  
+  font-size: 0.9rem;    
+  font-weight: 600;    /* semi-gras */
+  color: #1a1a2e;       
+  background: none;    /* pas de fond */
+  border: none;         
+  padding: 0.4rem 0.75rem; /* espace intérieur haut/bas gauche/droite */
+  cursor: pointer;     /* curseur main au survol */
+  border-radius: 4px;   
+}
+
+.btnIcone:hover {
+  color: #00C896;  
+}
+
+@media (max-width: 600px) {
+  .btnIcone span {
+    display: none; /* cache le texte du bouton sur mobile, garde seulement l'icône */
+  }
+}

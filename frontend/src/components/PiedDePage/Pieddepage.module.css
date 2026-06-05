@@ -1,0 +1,99 @@
+
+
+.footer {
+  background-color: #1a1a2e;  
+  color: #ffffff;              
+  padding: 2.5rem 1.5rem;    /* espace haut/bas gauche/droite */
+  margin-top: auto;           /* pousse le footer tout en bas */
+}
+
+.organisation {
+  max-width: 1200px;       
+  margin: 0 auto;         /* centré horizontalement */
+  display: flex;          
+  flex-direction: column; /* empile les éléments verticalement */
+  gap: 1.5rem;            /* espace entre colonnes et bas */
+}
+
+.colonnes {
+  display: flex;    /* colonnes côte à côte */
+  flex-wrap: wrap;  /* retour à la ligne si manque de place */
+  gap: 2rem;        /* espace entre les colonnes */
+}
+
+.colonne h3 {
+  font-family: "Nunito Sans", sans-serif;  
+  font-size: 0.875rem;    
+  font-weight: bold;     
+  text-transform: uppercase; /* texte en majuscules */
+  letter-spacing: 0.05em;   /* espace entre les lettres */
+  color: #ffffff;             
+  margin: 0 0 0.75rem 0;     /* espace en bas seulement */
+}
+
+.colonne ul {
+  list-style: none;       /* supprime les puces */
+  padding: 0;             /* supprime le padding par défaut */
+  margin: 0;              /* supprime la marge par défaut */
+  display: flex;           
+  flex-direction: column; /* empile les liens verticalement */
+  gap: 0.4rem;            /* espace entre les liens */
+}
+
+.colonne ul li a {
+  color: #b0b8c8;          
+  text-decoration: none;   /* pas de soulignement */
+  font-size: 0.875rem;      
+  transition: color 0.2s;  /* changement de couleur fluide */
+}
+
+.colonne ul li a:hover {
+  color: #ffffff;  
+}
+
+.bas {
+  border-top: 1px solid #2e2e4a;      /* ligne de séparation en haut */
+  padding-top: 1.25rem;               /* espace au-dessus du contenu */
+  display: flex;                       
+  align-items: center;                 /* centré verticalement */
+  justify-content: space-between;      /* copyright à gauche, mentions à droite */
+  flex-wrap: wrap;                     /* retour à la ligne si manque de place */
+  gap: 1rem;                           /* espace entre les éléments */
+}
+
+.copyright {
+  font-size: 0.8rem;   
+  color: #b0b8c8;     
+  margin: 0;          /* supprime les marges par défaut */
+}
+
+.mentions {
+  display: flex;    /* liens côte à côte */
+  gap: 1rem;        /* espace entre les liens */
+  list-style: none; /* supprime les puces */
+  padding: 0;       /* supprime le padding par défaut */
+  margin: 0;        /* supprime la marge par défaut */
+}
+
+.mentions li a {
+  font-size: 0.8rem;        
+  color: #b0b8c8;          
+  text-decoration: none;   /* pas de soulignement */
+  transition: color 0.2s;  /* changement de couleur fluide */
+}
+
+.mentions li a:hover {
+  color: #ffffff;  
+}
+
+@media (max-width: 600px) {
+  .colonnes {
+    flex-direction: column; /* colonnes empilées sur mobile */
+    gap: 1.5rem;            /* espace réduit entre les colonnes */
+  }
+
+  .bas {
+    flex-direction: column;  /* copyright et mentions empilés sur mobile */
+    align-items: flex-start; /* collé à gauche sur mobile */
+  }
+}

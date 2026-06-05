@@ -1,0 +1,77 @@
+
+
+/* ── Reset de base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Police et couleurs globales ── */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  font-size: 1rem;
+  color: #212529;
+  background-color: #ffffff;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── Liens ── */
+a {
+  color: #005dab;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Titres ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.3;
+  color: #1a1a2e;
+}
+
+/* ── Images ── */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Inputs et boutons ── */
+input,
+select,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ── Listes ── */
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Root React ── */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

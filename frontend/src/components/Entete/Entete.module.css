@@ -1,0 +1,139 @@
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.bandeau {
+  background-color: #1a1a2e;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.3rem 1.5rem;
+}
+
+.bandeauLien {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.bandeauLien:hover {
+  color: #00C896;
+  text-decoration: none;
+}
+
+.disposition {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  height: 46px;
+  width: auto;
+}
+
+.profilImg {
+  height: 26px;
+  width: auto;
+}
+
+.separateur {
+  width: 1px;
+  height: 32px;
+  background-color: #dee2e6;
+  margin: 0 0.5rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.menu:hover {
+  text-decoration: underline;
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuIcon span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #1a1a2e;
+}
+
+.droite {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btnIcone {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  background: none;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btnIcone:hover {
+  color: #00C896;
+}
+
+.separateurDroite {
+  width: 1px;
+  height: 28px;
+  background-color: #dee2e6;
+}
+
+@media (max-width: 600px) {
+  .bandeau {
+    padding: 0.3rem 1rem;
+  }
+
+  .disposition {
+    padding: 0 1rem;
+  }
+
+  .btnIcone span {
+    display: none;
+  }
+
+  .menu span {
+    display: none;
+  }
+}

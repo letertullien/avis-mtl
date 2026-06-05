@@ -1,0 +1,85 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modale {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 420px;
+  position: relative;
+}
+
+.btnFermer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.titre {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.erreur {
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.btnAbonner {
+  background: #0057a8;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btnAbonner:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btnDesabonner {
+  background: white;
+  color: #c0392b;
+  border: 2px solid #c0392b;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btnDesabonner:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

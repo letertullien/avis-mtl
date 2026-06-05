@@ -1,0 +1,256 @@
+.filtres {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.filtresTitre {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+/* ── Ligne recherche ── */
+.ligneRecherche {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.labelRecherche {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.champRecherche {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.loupeIcone {
+  width: 18px;
+  height: 18px;
+  color: #6c757d;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.inputWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.recherche {
+  width: 100%;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.75rem 0.6rem 2.5rem;
+  border: 1.5px solid #ced4da;
+  border-radius: 6px;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: #ffffff;
+}
+
+.recherche:focus {
+  border-color: #005dab;
+}
+
+.btnEffacer {
+  width: 30%;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a6b5a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.btnEffacer:hover {
+  color: #14503f;
+  text-decoration: underline;
+}
+
+/* ── Groupe filtre (arrondissement / sujet) ── */
+.groupeFiltre {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.labelGroupe {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+/* ── Boutons de sélection multiple ── */
+.boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btnFiltre {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  background-color: #ffffff;
+  border: 1.5px solid #1a1a2e;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.btnFiltre:hover {
+  background-color: #e9ecef;
+}
+
+/* État sélectionné */
+.btnFiltre.actif {
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+/* ── Dates ── */
+.filtresDates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.labelDate {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inputDate {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid #ced4da;
+  border-radius: 999px;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: #ffffff;
+}
+
+.inputDate:hover {
+  border-color: #4b2e2e;
+}
+
+.inputDate:focus {
+  border-color: #005dab;
+}
+
+/* ── Zone filtres actifs (chips) ── */
+.filtresActifs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #f0f4f8;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.labelFiltresActifs {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+/* ── Chip individuel ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  background-color: #ffffff;
+  border: 1.5px solid #1a1a2e;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem 0.25rem 0.8rem;
+}
+
+.chipSupprimer {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1a1a2e;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.chipSupprimer:hover {
+  color: #e00000;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .champRecherche {
+    flex-wrap: wrap;
+  }
+
+  .recherche {
+    width: 100%;
+  }
+
+  .filtresDates {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filtresActifs {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

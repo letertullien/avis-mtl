@@ -1,0 +1,20 @@
+
+
+.btnEffacer {
+  font-family: "Nunito Sans", sans-serif;  
+  font-size: 0.875rem;   
+  font-weight: 600;     /* semi-gras */
+  color: #e00000;     
+  background: none;     
+  border: 2px solid #e00000;  
+  border-radius: 4px;    
+  padding: 0.45rem 1rem; /* espace intérieur haut/bas gauche/droite */
+  cursor: pointer;      /* curseur main au survol */
+  transition: background-color 0.4s, color 0.6s; /* animation fond et texte */
+  white-space: nowrap;  /* empêche le texte de passer à la ligne */
+}
+
+.btnEffacer:hover {
+  background-color: #e00000;  
+  color: #ffffff;             
+}
