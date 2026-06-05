@@ -47,6 +47,9 @@ self.addEventListener("fetch", (event) => {
   // Laisse passer les tuiles OpenStreetMap sans interception
   if (url.hostname.includes("tile.openstreetmap.org")) return;
 
+  // Laisse passer les requêtes vers le backend Render
+  if (url.hostname.includes("onrender.com")) return;
+
   if (url.hostname === "donnees.montreal.ca") {
     event.respondWith(staleWhileRevalidate(event.request, CACHE_API));
     return;
