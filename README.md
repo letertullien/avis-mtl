@@ -77,7 +77,7 @@ avis-mtl/
 ### Prérequis
 - Node.js v18+
 - Compte MongoDB Atlas
-- Compte Netlify (frontend)
+- Compte GitHub (frontend — GitHub Pages)
 - Compte Render (backend)
 
 ### Backend
@@ -159,12 +159,12 @@ directement dans `src/services/alertes.js` et `src/hooks/useNotifications.js`.
 ## Tester l'envoi de notifications
 
 ### Étape 1 — S'abonner
-1. Ouvre l'application : `https://adorable-sorbet-4875fe.netlify.app`
+1. Ouvre l'application : `https://letertullien.github.io/avis-mtl/`
 2. Clique sur **M'abonner** dans la section "S'abonner aux alertes"
 3. Accepte la permission de notifications dans le navigateur
 
 ### Étape 2 — Option A : Dashboard admin (recommandé)
-1. Va sur `https://adorable-sorbet-4875fe.netlify.app/admin`
+1. Va sur `https://letertullien.github.io/avis-mtl/#/admin`
 2. Remplis les champs **Titre**, **Corps** et **URL de destination**
 3. Clique **Envoyer à tous les abonnés**
 4. La notification apparaît sur tous les appareils abonnés
