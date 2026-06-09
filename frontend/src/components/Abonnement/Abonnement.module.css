@@ -1,37 +1,52 @@
 .abonnement {
   background-color: #f0f4f8;
   border: 1px solid #dee2e6;
-  border-radius: 6px;       
-  padding: 1.25rem 1.5rem;   /* haut/bas gauche/droite */
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
 }
 
 .abonnement h2 {
-  font-family: "Nunito Sans", sans-serif; 
-  font-size: 1rem;                        /* Taille de caractére */
-  font-weight: bold;                      
-  color: #1a1a2e;                        
-  margin: 0 0 0.5rem 0;                   /* espace en bas seulement */
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin: 0 0 0.5rem 0;
 }
 
 .abonnement p {
-  font-size: 0.9rem;   
-  color: #495057;      
+  font-size: 0.9rem;
+  color: #495057;
   margin: 0 0 0.75rem 0;
-  line-height: 1.5;     /* interligne 1.5x la taille de police */
+  line-height: 1.5;
 }
 
+/* Bouton vert avec flèche → */
 .lienAbonner {
-  font-family: "Nunito Sans", sans-serif; 
-  font-size: 0.9rem;     
-  font-weight: 600;       /* semi-gras */
-  color: #005dab;         
-  text-decoration: none;  /* pas de soulignement */
-  display: inline-flex;   /* flexbox en ligne */
-  align-items: center;    /* centré verticalement */
-  gap: 0.25rem;           /* espace entre les éléments*/
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a6b5a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.lienAbonner::after {
+  content: "→";                           /* flèche après le texte */
+  font-size: 1rem;
+  transition: transform 0.2s;
 }
 
 .lienAbonner:hover {
-  text-decoration: underline; /* soulignement au survol */
-  color: #003d73;            
+  color: #14503f;
+  text-decoration: underline;
+}
+
+.lienAbonner:hover::after {
+  transform: translateX(3px);             /* flèche glisse vers la droite au survol */
 }
