@@ -7,9 +7,9 @@ const CACHE_API      = "avis-mtl-api-v12";                                     /
 
                                                                                //  Ressources à précacher à l'installation
 const ASSETS = [
-  "/",
-  "/index.html",
-  "/manifest.webmanifest",
+  "/avis-mtl/",
+  "/avis-mtl/index.html",
+  "/avis-mtl/manifest.webmanifest",
 ];
                     // Événement install                                        // Load after SW install  // New version
 self.addEventListener("install", (event) => {
