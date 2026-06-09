@@ -100,6 +100,7 @@
   position: relative;
 }
 
+/* ── Bouton dropdown avec flèche CSS ── */
 .btnDropdown {
   font-family: "Nunito Sans", sans-serif;
   font-size: 0.9rem;
@@ -112,6 +113,9 @@
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .btnDropdown:hover {
@@ -122,6 +126,23 @@
   background-color: #1a6b5a;
   color: #ffffff;
   border-color: #1a6b5a;
+}
+
+/* Flèche vers le bas */
+.btnDropdown::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
+}
+
+/* Flèche vers le haut quand panneau ouvert */
+.btnDropdown.actif::after {
+  transform: rotate(-135deg) translateY(2px);
 }
 
 /* ── Panneau dropdown ── */

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+ import { useState } from 'react';
 import BoutonSupprime from '../BoutonSupprimer/BoutonSupprime';
 import loupe from '../../../assets/loupe.png';
 import styles from './Filtre.module.css';
@@ -138,7 +138,7 @@ function Filtre({
             className={`${styles.btnDropdown} ${panneauOuvert === 'arrondissement' || nbArrondissement > 0 ? styles.actif : ''}`}
             onClick={() => togglePanneau('arrondissement')}
           >
-            Arrondissement {nbArrondissement > 0 ? `(${nbArrondissement})` : ''} ∨
+            Arrondissement {nbArrondissement > 0 ? `(${nbArrondissement})` : ''}
           </button>
 
           {/* Panneau — s'affiche seulement si ouvert */}
@@ -187,7 +187,7 @@ function Filtre({
             className={`${styles.btnDropdown} ${panneauOuvert === 'date' || nbDate > 0 ? styles.actif : ''}`}
             onClick={() => togglePanneau('date')}
           >
-            Date {nbDate > 0 ? `(${nbDate})` : ''} ∨
+            Date {nbDate > 0 ? `(${nbDate})` : ''}
           </button>
 
           {panneauOuvert === 'date' && (
@@ -240,7 +240,7 @@ function Filtre({
             className={`${styles.btnDropdown} ${panneauOuvert === 'sujet' || nbSujet > 0 ? styles.actif : ''}`}
             onClick={() => togglePanneau('sujet')}
           >
-            Sujet {nbSujet > 0 ? `(${nbSujet})` : ''} ∨
+            Sujet {nbSujet > 0 ? `(${nbSujet})` : ''}
           </button>
 
           {panneauOuvert === 'sujet' && (
