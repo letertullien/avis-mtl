@@ -15,6 +15,7 @@
   flex-direction: column;
   gap: 0.75rem;
   max-width: 600px;                /* ← formulaire reste centré et étroit */
+  margin: 0 auto;  
 }
 
 .label {
