@@ -37,7 +37,7 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();                                                          // SW take control
 });
 
-                 //  Événement fetch
+       //  Événement fetch
 self.addEventListener("fetch", (event) => {
 
   if (event.request.method !== "GET") return;                                 // just GET
@@ -50,12 +50,16 @@ self.addEventListener("fetch", (event) => {
   // Laisse passer les requêtes vers le backend Render
   if (url.hostname.includes("onrender.com")) return;
 
+  // Laisse passer Google Fonts
+  if (url.hostname.includes("fonts.googleapis.com")) return;
+  if (url.hostname.includes("fonts.gstatic.com")) return;
+
   if (url.hostname === "donnees.montreal.ca") {
-    event.respondWith(staleWhileRevalidate(event.request, CACHE_API));
+    event.respondWith(staleWhileRevalidate(event.request, CACHE_API));         // 1- cache 2- update background
     return;
   }
 
-  event.respondWith(cacheFirst(event.request, CACHE_STATIQUE));
+  event.respondWith(cacheFirst(event.request, CACHE_STATIQUE));                // cache? else network
 });
 
 //  Stratégie Cache First
