@@ -22,12 +22,12 @@ function Accueil() {
   const [erreur,              setErreur]              = useState(null);
   const [modaleOuverte,       setModaleOuverte]       = useState(false);   // État de la modale d'abonnement
 
-  // ── Cache complet ───────────────────────────────────────────────────────
+  // ── Cache complet  
   const [toutesLesAlertes,    setToutesLesAlertes]    = useState([]);       // Chargé au premier filtre
   const [toutCharge,          setToutCharge]          = useState(false);    // true quand toutes les alertes sont en mémoire
   const [chargementTotal,     setChargementTotal]     = useState(false);    // true pendant le chargement du cache complet
 
-  // ── Pagination locale (mode filtré) ────────────────────────────────────
+  // ── Pagination locale (mode filtré)  
   const [nbVisibles,          setNbVisibles]          = useState(PAR_PAGE); // Contrôle combien d'alertes filtrées sont affichées
 
   const [sujets,              setSujets]              = useState([]);
@@ -39,7 +39,7 @@ function Accueil() {
 
 
 
-  // ── Chargement initial ──────────────────────────────────────────────────
+  //  Chargement initial  
   useEffect(() => {
     Promise.all([getAlertes(0, PAR_PAGE), getSujets()])                     // 10 alertes et tous les sujets en parallèle
       .then(([{ alertes, total }, sujets]) => {
@@ -53,7 +53,7 @@ function Accueil() {
 
 
 
-  // ── Détection des filtres actifs ────────────────────────────────────────
+  //   Détection des filtres actifs  
   const aFiltresActifs =
     filtresArrondissement.length > 0 ||
     filtresSujet.length > 0 ||
@@ -65,7 +65,7 @@ function Accueil() {
 
 
 
-  // ── Chargement du cache complet au premier filtre ───────────────────────
+  //  Chargement du cache complet au premier filtre  
   useEffect(() => {
     if (filtreOuRecherche && !toutCharge && !chargementTotal) {
       setChargementTotal(true);
@@ -88,7 +88,7 @@ function Accueil() {
 
 
 
-  // ── Charger plus ────────────────────────────────────────────────────────
+  //   Charger plus  
   function handleChargerPlus() {
     if (filtreOuRecherche) {
       setNbVisibles((prev) => prev + PAR_PAGE);
@@ -137,7 +137,7 @@ function Accueil() {
 
 
 
-  // ── Affichages conditionnels ────────────────────────────────────────────
+  //   Affichages conditionnels  
 
   // Spinner
   if (chargement) {
@@ -157,7 +157,7 @@ function Accueil() {
 
 
 
-  // ── Préparation de l'affichage ──────────────────────────────────────────
+  //  Préparation de l'affichage 
 
   const sourceAlertes   = filtreOuRecherche ? toutesLesAlertes : alertes;
   const alertesFiltrees = sourceAlertes.filter(alerteCorrespond);
@@ -197,7 +197,7 @@ function Accueil() {
 
 
 
-  // ── Rendu principal ─────────────────────────────────────────────────────
+  //   Rendu principal  
   return (
     <div className={styles.page}>
 

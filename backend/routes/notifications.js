@@ -54,6 +54,7 @@ router.post("/send-notification", async (req, res) => {
     await Notification.create({
       title,
       body,
+      url:             url || "/",  
       recipientsCount: abonnements.length,
       successCount:    succes,
       failureCount:    echecs,

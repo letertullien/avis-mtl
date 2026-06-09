@@ -48,7 +48,7 @@ function Admin() {
       if (reponse.ok) {
         setResultat({
           succes:  true,
-          message: `✅ Envoyé à ${json.data.succes} abonné(s) — ${json.data.echecs} échec(s)`,
+          message: ` Envoyé à ${json.data.succes} abonné(s) — ${json.data.echecs} échec(s)`,
         });
         setTitre("");
         setCorps("");
