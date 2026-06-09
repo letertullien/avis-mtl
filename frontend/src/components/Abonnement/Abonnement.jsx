@@ -9,7 +9,7 @@ function Abonnement({ onOuvrir }) {
         avoir créé un compte.
       </p>
       <button className={styles.lienAbonner} onClick={onOuvrir}>
-        M'abonner →
+        M'abonner
       </button>
     </section>
   );
