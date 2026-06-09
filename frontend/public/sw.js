@@ -2,8 +2,8 @@ import { precacheAndRoute } from 'workbox-precaching';                        //
 
 precacheAndRoute(self.__WB_MANIFEST);                                          // précache les assets générés par Vite
 
-const CACHE_STATIQUE = "avis-mtl-statique-v8";                                // pour les assets JS, CSS, HTML, images
-const CACHE_API      = "avis-mtl-api-v8";                                     // pour les réponses de l'API de la Ville
+const CACHE_STATIQUE = "avis-mtl-statique-v12";                                // pour les assets JS, CSS, HTML, images
+const CACHE_API      = "avis-mtl-api-v12";                                     // pour les réponses de l'API de la Ville
 
                                                                                //  Ressources à précacher à l'installation
 const ASSETS = [
