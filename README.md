@@ -188,6 +188,6 @@ ou dans le centre de notifications (iPhone — app installée sur l'écran d'acc
 
 | Service | URL |
 |---|---|
-| Frontend (Netlify) | https://adorable-sorbet-4875fe.netlify.app |
+| Frontend (GitHub Pages) | https://letertullien.github.io/avis-mtl/ |
 | Backend (Render) | https://avis-mtl-backend.onrender.com |
-| Dashboard admin | https://adorable-sorbet-4875fe.netlify.app/admin |
+| Dashboard admin | https://letertullien.github.io/avis-mtl/#/admin |
